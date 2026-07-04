@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Market Motion is an economics learning program for curious students in Grades 7–10.">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>Market Motion — Economics in motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#" aria-label="Market Motion home">
+        <span class="brand-mark" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </span>
+        <span>Market<br>Motion</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="sr-only">Open navigation</span>
+        <span></span><span></span>
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#journey">Learning Journey</a>
+        <a href="#projects">Projects</a>
+        <a href="#parents">For Parents</a>
+        <a class="button button-small button-orange" href="#join">Join the Program <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow"><span></span> Economics for Grades 7–10</p>
+          <h1>Markets move.<br><em>Ideas connect.</em></h1>
+          <p class="hero-lede">Discover how people make choices, prices change, and entire economies behave—through the hidden patterns of math and physics.</p>
+          <div class="button-row">
+            <a class="button button-orange" href="#how-it-works">Explore the Program <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#challenge">See a Sample Challenge <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-proof" aria-label="Program features">
+            <span><b>04</b> learning stages</span>
+            <span><b>20+</b> live experiments</span>
+            <span><b>∞</b> possible questions</span>
+          </div>
+        </div>
+
+        <div class="market-lab" data-reveal>
+          <div class="lab-top">
+            <p><span class="live-dot"></span> Market lab / live</p>
+            <span>PRICE SIGNALS</span>
+          </div>
+          <div class="market-scene" id="market-scene">
+            <svg viewBox="0 0 620 455" role="img" aria-labelledby="market-title market-desc">
+              <title id="market-title">An animated neighborhood market</title>
+              <desc id="market-desc">Buyers and sellers connect through changing prices and demand.</desc>
+              <defs>
+                <pattern id="smallGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M24 0H0V24" fill="none" stroke="#0b1f3a" stroke-opacity=".08" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="620" height="455" rx="20" fill="#f7f0df"/>
+              <rect width="620" height="455" rx="20" fill="url(#smallGrid)"/>
+              <path class="signal signal-a" d="M82 302C150 210 215 350 302 242S450 138 546 224" fill="none" stroke="#0b1f3a" stroke-width="3" stroke-dasharray="8 8"/>
+              <path class="signal signal-b" d="M70 146C176 202 246 104 340 163S480 350 558 300" fill="none" stroke="#007f79" stroke-width="3" stroke-dasharray="8 8"/>
+              <g class="stall">
+                <path d="M201 175h218l-20-58H221z" fill="#ff5c24" stroke="#0b1f3a" stroke-width="4"/>
+                <path d="M237 117v58M274 117v58M310 117v58M347 117v58M383 117v58" stroke="#0b1f3a" stroke-width="4"/>
+                <path d="M218 175h184v150H218z" fill="#fffaf0" stroke="#0b1f3a" stroke-width="4"/>
+                <path d="M245 220h130M245 249h130M245 278h88" stroke="#0b1f3a" stroke-width="8" stroke-linecap="round" opacity=".12"/>
+                <circle cx="337" cy="277" r="25" fill="#ffd12e" stroke="#0b1f3a" stroke-width="4"/>
+                <text x="337" y="285" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="22" fill="#0b1f3a">$?</text>
+                <path d="M196 326h228" stroke="#0b1f3a" stroke-width="5" stroke-linecap="round"/>
+              </g>
+              <g class="node node-one">
+                <circle cx="79" cy="142" r="30" fill="#1570ef" stroke="#0b1f3a" stroke-width="4"/>
+                <circle cx="79" cy="133" r="8" fill="#fff"/>
+                <path d="M62 156c5-13 29-13 34 0" fill="#fff"/>
+              </g>
+              <g class="node node-two">
+                <circle cx="540" cy="222" r="30" fill="#007f79" stroke="#0b1f3a" stroke-width="4"/>
+                <circle cx="540" cy="213" r="8" fill="#fff"/>
+                <path d="M523 236c5-13 29-13 34 0" fill="#fff"/>
+              </g>
+              <g class="node node-three">
+                <circle cx="95" cy="330" r="30" fill="#ffd12e" stroke="#0b1f3a" stroke-width="4"/>
+                <circle cx="95" cy="321" r="8" fill="#0b1f3a"/>
+                <path d="M78 344c5-13 29-13 34 0" fill="#0b1f3a"/>
+              </g>
+              <g class="node node-four">
+                <circle cx="527" cy="332" r="30" fill="#ff5c24" stroke="#0b1f3a" stroke-width="4"/>
+                <circle cx="527" cy="323" r="8" fill="#fff"/>
+                <path d="M510 346c5-13 29-13 34 0" fill="#fff"/>
+              </g>
+              <g class="price-tag">
+                <rect x="428" y="95" width="116" height="48" rx="24" fill="#0b1f3a"/>
+                <text x="486" y="125" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="17" fill="white">+ demand</text>
+              </g>
+              <g class="price-tag tag-two">
+                <rect x="70" y="216" width="105" height="48" rx="24" fill="white" stroke="#0b1f3a" stroke-width="3"/>
+                <text x="122" y="246" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="17" fill="#0b1f3a">$8 price</text>
+              </g>
+            </svg>
+            <button class="lab-pulse" type="button" aria-label="Send a new price signal">
+              <span>Tap to<br>shift demand</span>
+            </button>
+          </div>
+          <div class="lab-bottom">
+            <span><i class="key buyer"></i> Buyers</span>
+            <span><i class="key seller"></i> Sellers</span>
+            <p>Every choice sends a signal.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ticker" aria-hidden="true">
+        <div>
+          <span>CHOICES</span><i>✦</i><span>PRICES</span><i>✦</i><span>NETWORKS</span><i>✦</i><span>RISK</span><i>✦</i><span>STRATEGY</span><i>✦</i>
+          <span>CHOICES</span><i>✦</i><span>PRICES</span><i>✦</i><span>NETWORKS</span><i>✦</i><span>RISK</span><i>✦</i><span>STRATEGY</span><i>✦</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro section" id="how-it-works">
+      <div class="container">
+        <div class="section-heading split-heading" data-reveal>
+          <p class="eyebrow"><span></span> How it works</p>
+          <h2>Don’t just study the economy. <em>Put it in motion.</em></h2>
+          <p>Students learn economics by making decisions, testing ideas, and watching the results unfold. Every session starts with a question—not a lecture.</p>
+        </div>
+        <div class="principle-grid">
+          <article class="principle card-orange" data-reveal>
+            <span class="card-number">01</span>
+            <div class="mini-illustration play-illustration" aria-hidden="true">
+              <span class="die">4</span><span class="coin">$</span><span class="arrow">↝</span>
+            </div>
+            <h3>Learn by playing</h3>
+            <p>Run a shop. Bid in an auction. Trade limited resources. The lesson lives inside the game.</p>
+          </article>
+          <article class="principle card-blue" data-reveal>
+            <span class="card-number">02</span>
+            <div class="mini-illustration orbit-illustration" aria-hidden="true">
+              <span></span><i></i><b>×</b>
+            </div>
+            <h3>Think across subjects</h3>
+            <p>See how markets connect to probability, forces, networks, and the mathematics of change.</p>
+          </article>
+          <article class="principle card-teal" data-reveal>
+            <span class="card-number">03</span>
+            <div class="mini-illustration graph-illustration" aria-hidden="true">
+              <svg viewBox="0 0 180 90"><path d="M5 78L45 48l32 14 35-49 62 22"/><circle cx="45" cy="48" r="6"/><circle cx="112" cy="13" r="6"/><circle cx="174" cy="35" r="6"/></svg>
+            </div>
+            <h3>Solve real problems</h3>
+            <p>Turn evidence into a plan, defend your reasoning, then improve it when the world changes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey section" id="journey">
+      <div class="container">
+        <div class="section-heading centered" data-reveal>
+          <p class="eyrow eyebrow"><span></span> The learning journey</p>
+          <h2>Four years. One big question:<br><em>why does the world behave this way?</em></h2>
+        </div>
+        <div class="journey-track" role="list">
+          <article class="grade active" role="listitem" data-grade="7" data-reveal>
+            <div class="grade-top"><span>Grade</span><b>07</b></div>
+            <div class="grade-icon" aria-hidden="true">↔</div>
+            <h3>Choices &amp; trade</h3>
+            <p>Scarcity, opportunity cost, incentives, and why every choice has a trade-off.</p>
+            <ul><li>Decision games</li><li>Trading labs</li></ul>
+          </article>
+          <article class="grade" role="listitem" data-grade="8" data-reveal>
+            <div class="grade-top"><span>Grade</span><b>08</b></div>
+            <div class="grade-icon" aria-hidden="true">⌁</div>
+            <h3>Prices &amp; competition</h3>
+            <p>Supply, demand, shifting prices, and what happens when sellers compete.</p>
+            <ul><li>Market simulator</li><li>Price experiments</li></ul>
+          </article>
+          <article class="grade" role="listitem" data-grade="9" data-reveal>
+            <div class="grade-top"><span>Grade</span><b>09</b></div>
+            <div class="grade-icon nodes-icon" aria-hidden="true">●—●</div>
+            <h3>Risk &amp; strategy</h3>
+            <p>Networks, probability, uncertainty, and predicting what other people might do.</p>
+            <ul><li>Strategy tournament</li><li>Risk lab</li></ul>
+          </article>
+          <article class="grade" role="listitem" data-grade="10" data-reveal>
+            <div class="grade-top"><span>Grade</span><b>10</b></div>
+            <div class="grade-icon" aria-hidden="true">∞</div>
+            <h3>Systems &amp; complexity</h3>
+            <p>Optimization, feedback loops, economic systems, and surprising group behavior.</p>
+            <ul><li>Systems model</li><li>Policy challenge</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="connections section">
+      <div class="container connections-layout">
+        <div class="connections-copy" data-reveal>
+          <p class="eyebrow light"><span></span> Big connections</p>
+          <h2>Economics has some <em>unexpected neighbors.</em></h2>
+          <p>Zoom out and familiar ideas start to rhyme. A market can balance like a bridge, ripple like a wave, or organize like a flock of birds.</p>
+          <div class="motion-sketch" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="connection-list">
+          <article data-reveal>
+            <span class="connection-index">01</span>
+            <div><h3>Market equilibrium</h3><p>When buying and selling find a temporary balance.</p></div>
+            <span class="compare">balance of forces</span>
+          </article>
+          <article data-reveal>
+            <span class="connection-index">02</span>
+            <div><h3>Economic shocks</h3><p>One change can travel through a whole system.</p></div>
+            <span class="compare">waves &amp; motion</span>
+          </article>
+          <article data-reveal>
+            <span class="connection-index">03</span>
+            <div><h3>Trade networks</h3><p>Each link affects the strength of the whole.</p></div>
+            <span class="compare">connected systems</span>
+          </article>
+          <article data-reveal>
+            <span class="connection-index">04</span>
+            <div><h3>Uncertainty</h3><p>We can measure what we cannot know for sure.</p></div>
+            <span class="compare">probability</span>
+          </article>
+          <article data-reveal>
+            <span class="connection-index">05</span>
+            <div><h3>Individual decisions</h3><p>Simple choices can create complex patterns.</p></div>
+            <span class="compare">collective behavior</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="challenge section" id="challenge">
+      <div class="container">
+        <div class="section-heading split-heading" data-reveal>
+          <p class="eyebrow"><span></span> Try it yourself</p>
+          <h2>Set the price.<br><em>Watch the market react.</em></h2>
+          <p>You’re selling limited-edition school festival tote bags. Your cost is $4 each. Choose a price, then see how 100 potential buyers respond.</p>
+        </div>
+        <div class="simulator" data-reveal>
+          <div class="sim-control">
+            <div class="sim-label">
+              <div>
+                <span>Your price</span>
+                <strong id="price-display">$10</strong>
+              </div>
+              <span class="cost-note">Cost to make: $4</span>
+            </div>
+            <input id="price-range" type="range" min="5" max="20" value="10" step="1" aria-label="Choose a price from 5 to 20 dollars">
+            <div class="range-labels"><span>$5</span><span>$20</span></div>
+            <div class="buyer-field" aria-label="A visual field of 100 potential buyers">
+              <div class="buyer-field-head"><span>Potential buyers</span><b><span id="buyers-count">68</span> / 100</b></div>
+              <div id="buyer-dots" class="buyer-dots" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="sim-results" aria-live="polite">
+            <div class="result-card">
+              <span>Demand</span><strong id="demand-output">68</strong><small>bags sold</small>
+            </div>
+            <div class="result-card featured">
+              <span>Revenue</span><strong id="revenue-output">$680</strong><small>price × buyers</small>
+            </div>
+            <div class="result-card">
+              <span>Profit</span><strong id="profit-output">$408</strong><small>after costs</small>
+            </div>
+            <div class="feedback-card">
+              <span id="feedback-icon" aria-hidden="true">↗</span>
+              <div>
+                <strong id="feedback-title">Strong demand</strong>
+                <p id="feedback-copy">Many buyers are interested. Try raising the price—will extra profit per bag make up for fewer sales?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sim-note"><span>Think like an economist:</span> the highest price doesn’t always create the highest profit.</p>
+      </div>
+    </section>
+
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-heading projects-heading" data-reveal>
+          <div>
+            <p class="eyebrow"><span></span> Student projects</p>
+            <h2>Make something<br><em>that moves minds.</em></h2>
+          </div>
+          <p>Students work in teams, make a mess of their first idea, and build something smarter from what they discover.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project project-large" data-reveal>
+            <span class="project-tag">Live experiment</span>
+            <div class="project-art market-art" aria-hidden="true">
+              <div class="awning"></div><div class="counter"></div>
+              <span class="person p1"></span><span class="person p2"></span><span class="person p3"></span>
+            </div>
+            <div class="project-copy"><span>01</span><h3>Build a classroom marketplace</h3><p>Create the rules, open for trade, then explain why prices changed.</p></div>
+          </article>
+          <article class="project project-yellow" data-reveal>
+            <span class="project-tag">Game design</span>
+            <div class="auction-art" aria-hidden="true"><span>7</span><span>12</span><span>9</span><b>SOLD!</b></div>
+            <div class="project-copy"><span>02</span><h3>Design a fair auction</h3></div>
+          </article>
+          <article class="project project-blue" data-reveal>
+            <span class="project-tag">Behavior lab</span>
+            <div class="rumor-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="project-copy"><span>03</span><h3>Model how a rumor changes demand</h3></div>
+          </article>
+          <article class="project project-navy" data-reveal>
+            <span class="project-tag">Systems map</span>
+            <div class="network-art" aria-hidden="true"><span>NY</span><span>LA</span><span>TK</span><span>LDN</span></div>
+            <div class="project-copy"><span>04</span><h3>Map a global supply network</h3></div>
+          </article>
+          <article class="project project-cream" data-reveal>
+            <span class="project-tag">Strategy sprint</span>
+            <div class="resource-art" aria-hidden="true">⅓ <span>water left</span></div>
+            <div class="project-copy"><span>05</span><h3>Plan for a resource shortage</h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits section" id="parents">
+      <div class="container">
+        <div class="benefit-intro" data-reveal>
+          <p class="eyebrow light"><span></span> Skills that travel</p>
+          <h2>Built for the world<br><em>beyond the classroom.</em></h2>
+          <div class="audience-tabs" role="tablist" aria-label="Benefits by audience">
+            <button role="tab" aria-selected="true" data-audience="students">Students</button>
+            <button role="tab" aria-selected="false" data-audience="parents">Parents</button>
+            <button role="tab" aria-selected="false" data-audience="schools">Schools</button>
+          </div>
+          <p id="audience-copy">Students learn to spot patterns, explain their thinking, and make confident choices—even when there isn’t one perfect answer.</p>
+        </div>
+        <div class="benefit-cloud" aria-label="Program outcomes" data-reveal>
+          <span class="pill pill-a">Economic literacy</span>
+          <span class="pill pill-b">Mathematical reasoning</span>
+          <span class="pill pill-c">Systems thinking</span>
+          <span class="pill pill-d">Communication</span>
+          <span class="pill pill-e">Confident decisions</span>
+          <svg viewBox="0 0 600 470" aria-hidden="true"><path d="M69 100C206 18 462 4 536 152s-29 276-203 292S14 349 42 213 212 53 348 81 521 254 419 349 114 392 85 245 230 42 372 87 512 261 376 370 91 302 162 156 358 153" fill="none" stroke="#29a79f" stroke-width="2" stroke-dasharray="5 8"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="voices section">
+      <div class="container">
+        <div class="section-heading centered" data-reveal>
+          <p class="eyebrow"><span></span> Voices from the market</p>
+          <h2>Curiosity is <em>contagious.</em></h2>
+        </div>
+        <div class="testimonial-grid">
+          <figure data-reveal>
+            <blockquote>“I thought economics was just money. Then our class market crashed because everyone copied one seller. It felt like solving a mystery.”</blockquote>
+            <figcaption><span class="avatar avatar-one">MK</span><div><b>Maya K.</b><small>Grade 8 student</small></div></figcaption>
+          </figure>
+          <figure class="featured-quote" data-reveal>
+            <blockquote>“The program gives students permission to test, fail, and rethink. They’re using math because they need it—not because a worksheet told them to.”</blockquote>
+            <figcaption><span class="avatar avatar-two">JR</span><div><b>Jordan Rivera</b><small>Middle school teacher</small></div></figcaption>
+          </figure>
+          <figure data-reveal>
+            <blockquote>“At dinner, Leo now asks who set the price and what might change it. He’s noticing systems everywhere.”</blockquote>
+            <figcaption><span class="avatar avatar-three">AP</span><div><b>A. Patel</b><small>Parent of Grade 7 student</small></div></figcaption>
+          </figure>
+        </div>
+        <p class="placeholder-note">Illustrative testimonials based on typical program experiences.</p>
+      </div>
+    </section>
+
+    <section class="final-cta" id="join">
+      <div class="cta-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="container" data-reveal>
+        <p class="eyebrow light"><span></span> The next move is yours</p>
+        <h2>Ready to see the invisible forces <em>shaping our world?</em></h2>
+        <p>Join a learning experience built for curious minds, bold questions, and ideas that refuse to sit still.</p>
+        <div class="button-row centered-buttons">
+          <a class="button button-orange" href="mailto:hello@marketmotion.org?subject=Join%20Market%20Motion">Join Market Motion <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline-light" href="#footer">Download the Program Guide <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand brand-light" href="#" aria-label="Market Motion home">
+            <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>Market<br>Motion</span>
+          </a>
+          <p>Economics in motion.<br>Ideas in the making.</p>
+        </div>
+        <div class="footer-links">
+          <div><h3>Explore</h3><a href="#how-it-works">How It Works</a><a href="#journey">Learning Journey</a><a href="#projects">Projects</a><a href="#challenge">Sample Challenge</a></div>
+          <div><h3>Connect</h3><a href="mailto:hello@marketmotion.org">hello@marketmotion.org</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Privacy</a></div>
+        </div>
+        <form class="newsletter" id="newsletter-form">
+          <h3>Fresh ideas, once a month.</h3>
+          <p>Experiments, explainers, and program news.</p>
+          <label class="sr-only" for="email">Email address</label>
+          <div><input id="email" name="email" type="email" autocomplete="email" placeholder="Your email address" required><button type="submit" aria-label="Subscribe">→</button></div>
+          <small id="form-message" aria-live="polite">No spam. Just good questions.</small>
+        </form>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Market Motion</span><span>Made for minds in motion.</span><a href="#">Back to top ↑</a></div>
+    </div>
+  </footer>
+</body>
+</html>
