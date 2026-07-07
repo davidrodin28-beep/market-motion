@@ -141,7 +141,8 @@ sectionTargets.forEach((section) => sectionObserver.observe(section));
 
 document.querySelector("#application")?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const name = document.querySelector("#app-name");
+  const firstName = document.querySelector("#app-first-name");
+  const lastName = document.querySelector("#app-last-name");
   const email = document.querySelector("#app-email");
   const phone = document.querySelector("#app-phone");
   const grade = document.querySelector("#app-grade");
@@ -157,7 +158,8 @@ document.querySelector("#application")?.addEventListener("submit", (event) => {
   const body = [
     "Youth Stock Education Program Application",
     "",
-    `Name: ${name.value}`,
+    `First name: ${firstName.value}`,
+    `Last name: ${lastName.value}`,
     `Email: ${email.value}`,
     `Phone number: ${phone.value}`,
     `Grade for the 2026-2027 school year: ${grade.value}`
