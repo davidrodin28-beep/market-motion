@@ -65,6 +65,11 @@ h1 em, h2 em { color: var(--navy); font-style: normal; text-decoration: underlin
 .button:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--navy); }
 .button:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
 .button-orange { background: var(--orange); color: #fff; }
+.button-orange:visited,
+.button-orange:hover,
+.button-orange:focus,
+.main-nav .button-orange,
+.main-nav .button-orange[aria-current="true"] { color: #fff; }
 .button-small { min-height: 44px; padding: 8px 16px; gap: 12px; box-shadow: 3px 3px 0 var(--navy); font-size: .87rem; }
 .button-row { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
 .text-link { font-family: "Manrope", sans-serif; font-weight: 800; text-underline-offset: 6px; }
