@@ -139,7 +139,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sectionTargets.forEach((section) => sectionObserver.observe(section));
 
-document.querySelector("#application")?.addEventListener("submit", (event) => {
+document.querySelector("#application")?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const firstName = document.querySelector("#app-first-name");
   const lastName = document.querySelector("#app-last-name");
@@ -147,6 +147,7 @@ document.querySelector("#application")?.addEventListener("submit", (event) => {
   const phone = document.querySelector("#app-phone");
   const grade = document.querySelector("#app-grade");
   const message = document.querySelector("#form-message");
+  const submitButton = event.currentTarget.querySelector('button[type="submit"]');
   const form = event.currentTarget;
 
   if (!form.checkValidity()) {
@@ -154,18 +155,35 @@ document.querySelector("#application")?.addEventListener("submit", (event) => {
     return;
   }
 
-  const subject = "Youth Stock Education Program Application";
-  const body = [
-    "Youth Stock Education Program Application",
-    "",
-    `First name: ${firstName.value}`,
-    `Last name: ${lastName.value}`,
-    `Email: ${email.value}`,
-    `Phone number: ${phone.value}`,
-    `Grade for the 2026-2027 school year: ${grade.value}`
-  ].join("\n");
+  const application = {
+    firstName: firstName.value.trim(),
+    lastName: lastName.value.trim(),
+    email: email.value.trim(),
+    phone: phone.value.trim(),
+    grade: grade.value
+  };
 
-  const mailto = `mailto:youthstockeducationprogram@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailto;
-  message.textContent = "Opening your email app with the application details.";
+  message.textContent = "Sending application...";
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch("/api/apply", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(application)
+    });
+
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(result.error || "The application could not be sent.");
+    }
+
+    message.textContent = "Application sent. We’ll be in touch soon.";
+    form.reset();
+  } catch (error) {
+    message.textContent = "Application could not be sent. Please email youthstockeducationprogram@gmail.com directly.";
+  } finally {
+    submitButton.disabled = false;
+  }
 });
