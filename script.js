@@ -68,20 +68,20 @@ function marketResponse(price) {
 
   if (price <= 7) {
     feedbackIcon.textContent = "↑";
-    feedbackTitle.textContent = "Selling fast";
-    feedbackCopy.textContent = "Demand is huge, but your margin is slim. Could a slightly higher price earn more without losing too many buyers?";
+    feedbackTitle.textContent = "Lots of buyers";
+    feedbackCopy.textContent = "The low price attracts a crowd, but each share earns little. Could a slightly higher price improve the result?";
   } else if (price <= 11) {
     feedbackIcon.textContent = "↗";
-    feedbackTitle.textContent = "Strong demand";
-    feedbackCopy.textContent = "Many buyers are interested. Try raising the price—will extra profit per bag make up for fewer sales?";
+    feedbackTitle.textContent = "Strong signal";
+    feedbackCopy.textContent = "Many buyers are still interested. Try raising the price—does the extra value per share make up for fewer buyers?";
   } else if (price <= 15) {
     feedbackIcon.textContent = "≈";
-    feedbackTitle.textContent = "Near the sweet spot";
-    feedbackCopy.textContent = "Price and demand are finding a useful balance. Test nearby prices to see where profit reaches its peak.";
+    feedbackTitle.textContent = "Near equilibrium";
+    feedbackCopy.textContent = "Price and demand are finding a useful balance. Test nearby prices to see where the curve reaches its peak.";
   } else {
     feedbackIcon.textContent = "↓";
     feedbackTitle.textContent = "Buyers pull back";
-    feedbackCopy.textContent = "Each bag earns more, but many buyers walk away. A high price can shrink the market faster than you expect.";
+    feedbackCopy.textContent = "Each share earns more, but many buyers walk away. A high price can shrink the market faster than you expect.";
   }
 }
 
@@ -89,9 +89,9 @@ priceRange?.addEventListener("input", (event) => marketResponse(Number(event.tar
 marketResponse(Number(priceRange?.value || 10));
 
 const audienceCopy = {
-  students: "Students learn to spot patterns, explain their thinking, and make confident choices—even when there isn’t one perfect answer.",
-  parents: "Parents see curiosity turn into practical judgment: asking sharper questions, reading evidence, and understanding the choices behind everyday prices.",
-  schools: "Schools get a flexible, interdisciplinary program that makes mathematics meaningful and gives students a lively reason to collaborate."
+  students: "Students learn to spot patterns, explain their thinking, and make confident choices when prices, risk, and information keep changing.",
+  parents: "Parents see curiosity turn into practical judgment: asking sharper questions, reading evidence, and understanding the signals behind everyday prices.",
+  schools: "Schools get a flexible, interdisciplinary program that makes mathematics and physics feel useful through capital-market simulations, models, and debate."
 };
 
 document.querySelectorAll(".audience-tabs button").forEach((tab) => {
