@@ -14,7 +14,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 118px; }
 body {
   margin: 0;
   color: var(--navy);
@@ -25,6 +25,7 @@ body {
   overflow-x: hidden;
 }
 body.menu-open { overflow: hidden; }
+section, footer { scroll-margin-top: 118px; }
 ::selection { background: #050505; color: white; }
 a { color: inherit; }
 button, input { font: inherit; }
@@ -70,8 +71,9 @@ h1 em, h2 em { color: var(--navy); font-style: normal; text-decoration: underlin
 .text-link:hover { color: var(--navy); text-decoration-thickness: 3px; }
 
 .site-header {
-  position: absolute; z-index: 20; top: 0; left: 0; width: 100%; height: 100px;
+  position: fixed; z-index: 20; top: 0; left: 0; width: 100%; height: 100px;
   display: flex; align-items: center; border-bottom: 1px solid var(--line);
+  background: rgba(251, 251, 251, .88); backdrop-filter: blur(16px);
 }
 .nav-wrap { display: flex; justify-content: space-between; align-items: center; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-family: "Manrope", sans-serif; font-weight: 800; line-height: .88; text-decoration: none; text-transform: uppercase; }
@@ -83,7 +85,8 @@ h1 em, h2 em { color: var(--navy); font-style: normal; text-decoration: underlin
 .main-nav { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 36px); font-weight: 700; font-size: .9rem; }
 .main-nav > a:not(.button) { text-decoration: none; position: relative; }
 .main-nav > a:not(.button)::after { content: ""; position: absolute; height: 2px; width: 0; left: 0; bottom: -6px; background: var(--orange); transition: width .2s; }
-.main-nav > a:hover::after { width: 100%; }
+.main-nav > a:hover::after, .main-nav > a[aria-current="true"]::after { width: 100%; }
+.main-nav > a[aria-current="true"] { color: var(--navy); }
 .menu-toggle { display: none; border: 0; background: none; width: 44px; height: 44px; }
 
 .hero {
@@ -160,7 +163,7 @@ h1 em, h2 em { color: var(--navy); font-style: normal; text-decoration: underlin
 .graph-illustration svg circle { fill: white; stroke: var(--navy); }
 
 .curriculum { background: white; border-top: 1px solid var(--line); }
-.week-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.week-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
 .week-card {
   min-height: 360px; padding: 24px; border: 2px solid var(--navy); border-radius: var(--radius);
   background: var(--paper); position: relative; overflow: hidden; transition: transform .25s, box-shadow .25s;

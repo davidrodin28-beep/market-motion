@@ -1,20 +1,45 @@
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".main-nav");
+const navLinks = [...document.querySelectorAll('a[href^="#"]')];
+const header = document.querySelector(".site-header");
+
+function closeMenu() {
+  menuButton?.setAttribute("aria-expanded", "false");
+  menuButton?.querySelector(".sr-only") && (menuButton.querySelector(".sr-only").textContent = "Open navigation");
+  navigation?.classList.remove("open");
+  document.body.classList.remove("menu-open");
+}
+
+function scrollToTarget(hash) {
+  const target = hash === "#" ? document.querySelector("#main") : document.querySelector(hash);
+  if (!target) return false;
+
+  const headerOffset = (header?.offsetHeight || 0) + 18;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+  window.scrollTo({ top: Math.max(targetTop, 0), behavior: "smooth" });
+  history.pushState(null, "", hash === "#" ? "#main" : hash);
+  return true;
+}
 
 menuButton?.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute("aria-expanded", String(!isOpen));
   menuButton.querySelector(".sr-only").textContent = isOpen ? "Open navigation" : "Close navigation";
-  navigation.classList.toggle("open", !isOpen);
+  navigation?.classList.toggle("open", !isOpen);
   document.body.classList.toggle("menu-open", !isOpen);
 });
 
-navigation?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuButton?.setAttribute("aria-expanded", "false");
-    navigation.classList.remove("open");
-    document.body.classList.remove("menu-open");
+navLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const href = link.getAttribute("href");
+    if (!href || href.length <= 1) return;
+    if (scrollToTarget(href)) event.preventDefault();
+    closeMenu();
   });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMenu();
 });
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -30,6 +55,7 @@ document.querySelectorAll("[data-reveal]").forEach((element) => revealObserver.o
 
 const lab = document.querySelector(".market-lab");
 document.querySelector(".lab-pulse")?.addEventListener("click", () => {
+  if (!lab) return;
   lab.classList.remove("is-shifting");
   void lab.offsetWidth;
   lab.classList.add("is-shifting");
@@ -46,20 +72,24 @@ const feedbackTitle = document.querySelector("#feedback-title");
 const feedbackCopy = document.querySelector("#feedback-copy");
 const buyerDots = document.querySelector("#buyer-dots");
 
-for (let i = 0; i < 100; i += 1) {
-  const dot = document.createElement("i");
-  buyerDots?.appendChild(dot);
+if (buyerDots) {
+  for (let i = 0; i < 100; i += 1) {
+    const dot = document.createElement("i");
+    buyerDots.appendChild(dot);
+  }
 }
 
 function marketResponse(price) {
+  if (!priceDisplay || !demandOutput || !revenueOutput || !profitOutput || !buyersCount || !buyerDots || !feedbackIcon || !feedbackTitle || !feedbackCopy) return;
+
   const demand = Math.max(6, Math.round(100 - (price - 5) * 6.4));
-  const revenue = price * demand;
-  const profit = (price - 4) * demand;
+  const sales = price * demand;
+  const pressure = demand > 70 ? "High" : demand > 35 ? "Medium" : "Low";
 
   priceDisplay.textContent = `$${price}`;
   demandOutput.textContent = demand;
-  revenueOutput.textContent = `$${revenue}`;
-  profitOutput.textContent = `$${profit}`;
+  revenueOutput.textContent = `$${sales}`;
+  profitOutput.textContent = pressure;
   buyersCount.textContent = demand;
 
   buyerDots.querySelectorAll("i").forEach((dot, index) => {
@@ -68,39 +98,46 @@ function marketResponse(price) {
 
   if (price <= 7) {
     feedbackIcon.textContent = "↑";
-    feedbackTitle.textContent = "Lots of buyers";
-    feedbackCopy.textContent = "The low price attracts a crowd, but each share earns little. Could a slightly higher price improve the result?";
+    feedbackTitle.textContent = "The line is huge";
+    feedbackCopy.textContent = "A low price attracts many buyers. When lots of people want a limited item, sellers may raise the price.";
   } else if (price <= 11) {
     feedbackIcon.textContent = "↗";
-    feedbackTitle.textContent = "Strong signal";
-    feedbackCopy.textContent = "Many buyers are still interested. Try raising the price—does the extra value per share make up for fewer buyers?";
+    feedbackTitle.textContent = "Demand is strong";
+    feedbackCopy.textContent = "Many buyers still want the limited drop. This is the supply-and-demand story from the sneaker example.";
   } else if (price <= 15) {
     feedbackIcon.textContent = "≈";
-    feedbackTitle.textContent = "Near equilibrium";
-    feedbackCopy.textContent = "Price and demand are finding a useful balance. Test nearby prices to see where the curve reaches its peak.";
+    feedbackTitle.textContent = "Some buyers leave";
+    feedbackCopy.textContent = "As the price rises, fewer people stay in line. Price changes when buyers and sellers react.";
   } else {
     feedbackIcon.textContent = "↓";
     feedbackTitle.textContent = "Buyers pull back";
-    feedbackCopy.textContent = "Each share earns more, but many buyers walk away. A high price can shrink the market faster than you expect.";
+    feedbackCopy.textContent = "At a high price, many buyers walk away. If demand drops, the price can fall too.";
   }
 }
 
 priceRange?.addEventListener("input", (event) => marketResponse(Number(event.target.value)));
 marketResponse(Number(priceRange?.value || 10));
 
-const audienceCopy = {
-  students: "Students learn to spot patterns, explain their thinking, and make confident choices when prices, risk, and information keep changing.",
-  parents: "Parents see curiosity turn into practical judgment: asking sharper questions, reading evidence, and understanding the signals behind everyday prices.",
-  schools: "Schools get a flexible, interdisciplinary program that makes mathematics and physics feel useful through capital-market simulations, models, and debate."
-};
+const sectionTargets = [...document.querySelectorAll("main section[id], footer[id]")];
+const sectionObserver = new IntersectionObserver((entries) => {
+  const visibleEntry = entries
+    .filter((entry) => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-document.querySelectorAll(".audience-tabs button").forEach((tab) => {
-  tab.addEventListener("click", () => {
-    document.querySelectorAll(".audience-tabs button").forEach((button) => button.setAttribute("aria-selected", "false"));
-    tab.setAttribute("aria-selected", "true");
-    document.querySelector("#audience-copy").textContent = audienceCopy[tab.dataset.audience];
+  if (!visibleEntry) return;
+  const activeId = visibleEntry.target.id;
+
+  document.querySelectorAll(".main-nav a").forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${activeId}`;
+    if (isActive) {
+      link.setAttribute("aria-current", "true");
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
-});
+}, { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.35, 0.6] });
+
+sectionTargets.forEach((section) => sectionObserver.observe(section));
 
 document.querySelector("#newsletter-form")?.addEventListener("submit", (event) => {
   event.preventDefault();
