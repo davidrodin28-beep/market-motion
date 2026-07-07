@@ -139,14 +139,31 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sectionTargets.forEach((section) => sectionObserver.observe(section));
 
-document.querySelector("#newsletter-form")?.addEventListener("submit", (event) => {
+document.querySelector("#application")?.addEventListener("submit", (event) => {
   event.preventDefault();
-  const email = document.querySelector("#email");
+  const name = document.querySelector("#app-name");
+  const email = document.querySelector("#app-email");
+  const phone = document.querySelector("#app-phone");
+  const grade = document.querySelector("#app-grade");
   const message = document.querySelector("#form-message");
-  if (!email.checkValidity()) {
-    email.reportValidity();
+  const form = event.currentTarget;
+
+  if (!form.checkValidity()) {
+    form.reportValidity();
     return;
   }
-  message.textContent = "You’re on the list. Keep asking good questions.";
-  email.value = "";
+
+  const subject = "Youth Stock Education Program Application";
+  const body = [
+    "Youth Stock Education Program Application",
+    "",
+    `Name: ${name.value}`,
+    `Email: ${email.value}`,
+    `Phone number: ${phone.value}`,
+    `Grade for the 2026-2027 school year: ${grade.value}`
+  ].join("\n");
+
+  const mailto = `mailto:youthstockeducationprogram@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
+  message.textContent = "Opening your email app with the application details.";
 });

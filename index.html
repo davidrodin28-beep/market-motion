@@ -281,7 +281,7 @@
         <h2>Ready to enter<br><em>the market arena?</em></h2>
         <p>Start with shares, brands, news, ETFs, dividends, and one first simulated purchase.</p>
         <div class="button-row centered-buttons">
-          <a class="button button-orange" href="mailto:hello@marketmotion.org?subject=Join%20Market%20Motion">Join the Program <span aria-hidden="true">↗</span></a>
+          <a class="button button-orange" href="#application">Join the Program <span aria-hidden="true">↓</span></a>
           <a class="button button-outline-light" href="#curriculum">Review the 5 Days <span aria-hidden="true">↑</span></a>
         </div>
       </div>
@@ -300,14 +300,30 @@
         </div>
         <div class="footer-links">
           <div><h3>Explore</h3><a href="#roadmap">Roadmap</a><a href="#curriculum">5 Days</a><a href="#concepts">Core Concepts</a><a href="#challenge">Price Lab</a></div>
-          <div><h3>Program</h3><a href="#simulation">Simulation</a><a href="mailto:hello@marketmotion.org">hello@marketmotion.org</a><a href="#footer">Privacy</a></div>
+          <div><h3>Program</h3><a href="#simulation">Simulation</a><a href="mailto:youthstockeducationprogram@gmail.com">youthstockeducationprogram@gmail.com</a><a href="#footer">Privacy</a></div>
         </div>
-        <form class="newsletter" id="newsletter-form">
-          <h3>Get program updates.</h3>
-          <p>Lessons, challenges, and simulation notes.</p>
-          <label class="sr-only" for="email">Email address</label>
-          <div><input id="email" name="email" type="email" autocomplete="email" placeholder="Your email address" required><button type="submit" aria-label="Subscribe">→</button></div>
-          <small id="form-message" aria-live="polite">No spam. Just program updates.</small>
+        <form class="newsletter application-form" id="application" aria-labelledby="application-title">
+          <h3 id="application-title">Apply to join.</h3>
+          <p>Send your application details to the program email.</p>
+          <label for="app-name">Name</label>
+          <input id="app-name" name="name" type="text" autocomplete="name" placeholder="Student name" required>
+          <label for="app-email">Email</label>
+          <input id="app-email" name="email" type="email" autocomplete="email" placeholder="student@email.com" required>
+          <label for="app-phone">Phone number</label>
+          <input id="app-phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone number" required>
+          <label for="app-grade">Grade for the 2026–2027 school year</label>
+          <select id="app-grade" name="grade" required>
+            <option value="">Select grade</option>
+            <option>Grade 6</option>
+            <option>Grade 7</option>
+            <option>Grade 8</option>
+            <option>Grade 9</option>
+            <option>Grade 10</option>
+            <option>Grade 11</option>
+            <option>Grade 12</option>
+          </select>
+          <button class="button button-orange" type="submit">Send Application <span aria-hidden="true">↗</span></button>
+          <small id="form-message" aria-live="polite">This opens an email to youthstockeducationprogram@gmail.com.</small>
         </form>
       </div>
       <div class="footer-bottom"><span>© 2026 Market Motion</span><span>Financial Literacy Program</span><a href="#main">Back to top ↑</a></div>
