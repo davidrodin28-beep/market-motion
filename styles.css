@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --navy: #050505;
   --orange: #111111;
   --cream: #f2f2f2;
@@ -82,6 +82,7 @@ h1 em, h2 em { color: var(--navy); font-style: normal; text-decoration: underlin
 }
 .nav-wrap { display: flex; justify-content: space-between; align-items: center; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-family: "Manrope", sans-serif; font-weight: 800; line-height: .88; text-decoration: none; text-transform: uppercase; }
+.brand small { display: block; margin-top: 5px; font-size: .46rem; line-height: 1.05; letter-spacing: .08em; max-width: 145px; }
 .brand-mark { width: 39px; height: 39px; position: relative; display: inline-block; border: 2px solid var(--navy); border-radius: 50%; overflow: hidden; background: var(--paper); }
 .brand-mark i { position: absolute; bottom: -4px; width: 10px; height: 33px; border-radius: 10px 10px 0 0; background: var(--orange); border: 2px solid var(--navy); }
 .brand-mark i:nth-child(1) { left: 2px; height: 20px; }
@@ -405,3 +406,4 @@ footer { background: #050505; color: white; padding: 80px 0 25px; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
