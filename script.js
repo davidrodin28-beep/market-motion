@@ -1,4 +1,4 @@
-const menuButton = document.querySelector(".menu-toggle");
+﻿const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".main-nav");
 const navLinks = [...document.querySelectorAll('a[href^="#"]')];
 const header = document.querySelector(".site-header");
@@ -139,51 +139,3 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sectionTargets.forEach((section) => sectionObserver.observe(section));
 
-document.querySelector("#application")?.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const firstName = document.querySelector("#app-first-name");
-  const lastName = document.querySelector("#app-last-name");
-  const email = document.querySelector("#app-email");
-  const phone = document.querySelector("#app-phone");
-  const grade = document.querySelector("#app-grade");
-  const message = document.querySelector("#form-message");
-  const submitButton = event.currentTarget.querySelector('button[type="submit"]');
-  const form = event.currentTarget;
-
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
-
-  const application = {
-    firstName: firstName.value.trim(),
-    lastName: lastName.value.trim(),
-    email: email.value.trim(),
-    phone: phone.value.trim(),
-    grade: grade.value
-  };
-
-  message.textContent = "Sending application...";
-  submitButton.disabled = true;
-
-  try {
-    const response = await fetch("/api/apply", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(application)
-    });
-
-    const result = await response.json().catch(() => ({}));
-
-    if (!response.ok) {
-      throw new Error(result.error || "The application could not be sent.");
-    }
-
-    message.textContent = "Application sent. We’ll be in touch soon.";
-    form.reset();
-  } catch (error) {
-    message.textContent = "Application could not be sent. Please email youthstockeducationprogram@gmail.com directly.";
-  } finally {
-    submitButton.disabled = false;
-  }
-});
