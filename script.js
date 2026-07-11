@@ -2,12 +2,24 @@
 const navigation = document.querySelector(".main-nav");
 const navLinks = [...document.querySelectorAll('a[href^="#"]')];
 const header = document.querySelector(".site-header");
+let lockedScrollY = 0;
 
 function closeMenu() {
   menuButton?.setAttribute("aria-expanded", "false");
   menuButton?.querySelector(".sr-only") && (menuButton.querySelector(".sr-only").textContent = "Open navigation");
   navigation?.classList.remove("open");
   document.body.classList.remove("menu-open");
+  document.body.style.top = "";
+  window.scrollTo(0, lockedScrollY);
+}
+
+function openMenu() {
+  lockedScrollY = window.scrollY;
+  menuButton?.setAttribute("aria-expanded", "true");
+  menuButton?.querySelector(".sr-only") && (menuButton.querySelector(".sr-only").textContent = "Close navigation");
+  document.body.style.top = `-${lockedScrollY}px`;
+  navigation?.classList.add("open");
+  document.body.classList.add("menu-open");
 }
 
 function scrollToTarget(hash) {
@@ -23,18 +35,25 @@ function scrollToTarget(hash) {
 
 menuButton?.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  menuButton.querySelector(".sr-only").textContent = isOpen ? "Open navigation" : "Close navigation";
-  navigation?.classList.toggle("open", !isOpen);
-  document.body.classList.toggle("menu-open", !isOpen);
+  if (isOpen) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
 });
 
 navLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     const href = link.getAttribute("href");
     if (!href || href.length <= 1) return;
-    if (scrollToTarget(href)) event.preventDefault();
-    closeMenu();
+    event.preventDefault();
+    const wasOpen = menuButton?.getAttribute("aria-expanded") === "true";
+    if (wasOpen) {
+      closeMenu();
+      window.requestAnimationFrame(() => scrollToTarget(href));
+    } else {
+      scrollToTarget(href);
+    }
   });
 });
 
