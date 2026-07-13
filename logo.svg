@@ -1,0 +1,16 @@
+<svg width="320" height="96" viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Youth Finance Education Program logo</title>
+  <desc id="logoDesc">A black and white circular mark with rising bars, an open book, and the letters YFEP.</desc>
+  <rect width="320" height="96" rx="18" fill="white"/>
+  <circle cx="48" cy="48" r="34" fill="white" stroke="#050505" stroke-width="5"/>
+  <path d="M24 59C31 51 38 47 48 47C58 47 65 51 72 59" stroke="#050505" stroke-width="5" stroke-linecap="round"/>
+  <path d="M30 64V45C30 41.6863 32.6863 39 36 39H42V70H36C32.6863 70 30 67.3137 30 64Z" fill="#050505"/>
+  <path d="M54 39H60C63.3137 39 66 41.6863 66 45V64C66 67.3137 63.3137 70 60 70H54V39Z" fill="#050505"/>
+  <rect x="40" y="31" width="7" height="39" rx="3.5" fill="#050505"/>
+  <rect x="49" y="24" width="7" height="46" rx="3.5" fill="#050505"/>
+  <path d="M90 30H145" stroke="#050505" stroke-width="5" stroke-linecap="round"/>
+  <path d="M90 48H158" stroke="#050505" stroke-width="5" stroke-linecap="round"/>
+  <path d="M90 66H135" stroke="#050505" stroke-width="5" stroke-linecap="round"/>
+  <text x="176" y="48" fill="#050505" font-family="Manrope, Arial, sans-serif" font-size="31" font-weight="800" letter-spacing="-1.2">YFEP</text>
+  <text x="177" y="68" fill="#050505" font-family="DM Sans, Arial, sans-serif" font-size="10" font-weight="800" letter-spacing="1.4">YOUTH FINANCE EDUCATION PROGRAM</text>
+</svg>

@@ -83,6 +83,7 @@ h1 em, h2 em { color: var(--navy); font-style: normal; text-decoration: underlin
 .nav-wrap { display: flex; justify-content: space-between; align-items: center; }
 .brand { display: inline-flex; min-height: 44px; align-items: center; gap: 11px; font-family: "Manrope", sans-serif; font-weight: 800; line-height: .88; text-decoration: none; text-transform: uppercase; }
 .brand small { display: block; margin-top: 5px; font-size: .46rem; line-height: 1.05; letter-spacing: .08em; max-width: 145px; }
+.brand-logo { width: clamp(175px, 18vw, 235px); height: auto; object-fit: contain; border-radius: 0; }
 .brand-mark { width: 39px; height: 39px; position: relative; display: inline-block; border: 2px solid var(--navy); border-radius: 50%; overflow: hidden; background: var(--paper); }
 .brand-mark i { position: absolute; bottom: -4px; width: 10px; height: 33px; border-radius: 10px 10px 0 0; background: var(--orange); border: 2px solid var(--navy); }
 .brand-mark i:nth-child(1) { left: 2px; height: 20px; }
@@ -369,6 +370,7 @@ footer { background: #050505; color: white; padding: 80px 0 25px; }
   h1 { font-size: clamp(3.4rem, 16vw, 5.4rem); }
   h2 { font-size: clamp(2.3rem, 11vw, 3.7rem); }
   .site-header { height: 82px; background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .brand-logo { width: 178px; }
   .menu-toggle { display: block; position: relative; z-index: 1002; cursor: pointer; }
   .menu-toggle span:not(.sr-only) { position: absolute; left: 10px; width: 24px; height: 2px; background: var(--navy); transition: transform .2s; }.menu-toggle span:nth-child(2) { top: 17px; }.menu-toggle span:nth-child(3) { top: 25px; }
   .menu-toggle[aria-expanded="true"] span:nth-child(2) { top: 21px; transform: rotate(45deg); }.menu-toggle[aria-expanded="true"] span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
@@ -401,6 +403,7 @@ footer { background: #050505; color: white; padding: 80px 0 25px; }
 
 @media (max-width: 420px) {
   h1 { font-size: clamp(2.8rem, 14vw, 4rem); line-height: .96; }
+  .brand-logo { width: 154px; }
   .hero-proof span { font-size: .6rem; }
   .lab-top > span { display: none; }
   .sim-results { grid-template-columns: 1fr 1fr; }.result-card:nth-child(3) { grid-column: 1/-1; }.feedback-card { grid-column: 1/-1; }
